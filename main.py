@@ -6,6 +6,7 @@ import move_zeros as mz
 import contains_duplicates as cd
 import rotate_array as ra
 import longest_word as lw
+import first_recurring_character as frc
 
 
 
@@ -64,6 +65,25 @@ nums = [1,2,3,1]
 #print("Method 1: Rotate Array --> {0}".format(ra.rotate_array_k_steps(nums, k)))
 
 # Longest Word
-sent = 'fun&!! time'
-print("Method 1: Longest Word --> {0}".format(lw.longest_word(sent)))
+#sent = 'fun&!! time'
+#print("Method 1: Longest Word --> {0}".format(lw.longest_word(sent)))
+
+# First Recurring Characters
+
+# Given an array = [2,5,1,2,3,5,1,2,4]:
+# It should return 2
+
+# Given an array = [2,1,1,2,3,5,1,2,4]:
+# It should return 1
+
+# Given an array = [2,3,4,5]:
+# It should return undefined
+arr1 = [2,5,1,2,3,5,1,2,4]
+arr2 = [2,1,1,2,3,5,1,2,4]
+arr3 = [2,3,4,5]
+arr4 = [2,5,5,2,3,5,1,2,4]
+
+print("Method 1: First Recurring Characters --> {0}".format(frc.first_recurring_character(arr4)))
+
+
 
