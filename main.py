@@ -8,6 +8,7 @@ import rotate_array as ra
 import longest_word as lw
 import first_recurring_character as frc
 from linked_list_impl import LinkedList, Node
+from binary_search_tree import BinarySearchTree, Node
 
 
 
@@ -50,7 +51,8 @@ from linked_list_impl import LinkedList, Node
 #print("Method 1: Move Zeros --> {0}".format(mz.move_zeros_to_end(zero_nums)))
 #print("Method 2: Move Zeros --> {0}".format(mz.move_zeros_to_end_2(zero_nums)))
 
-# Contains Duplicate
+
+3# Contains Duplicate
 nums = [1,2,3,1]
 #nums = [1,2,3,4]
 #nums = [1,1,1,3,3,4,3,2,4,2]
@@ -65,9 +67,12 @@ nums = [1,2,3,1]
 #k = 3
 #print("Method 1: Rotate Array --> {0}".format(ra.rotate_array_k_steps(nums, k)))
 
+
 # Longest Word
 #sent = 'fun&!! time'
 #print("Method 1: Longest Word --> {0}".format(lw.longest_word(sent)))
+
+
 
 # First Recurring Characters
 
@@ -86,15 +91,26 @@ nums = [1,2,3,1]
 
 #print("Method 1: First Recurring Characters --> {0}".format(frc.first_recurring_character(arr4)))
 
+
 # LinkedList Implementation
 
-ll = LinkedList()
-ll.add(1)
-ll.add(12)
-ll.add(15)
-ll.printList()
-ll.reverse()
-ll.printList()
+#ll = LinkedList()
+#ll.add(1)
+#ll.add(12)
+#ll.add(15)
+#ll.printList()
+#ll.reverse()
+#ll.printList()
+
+
+# Binary Search Tree
+
+bst = BinarySearchTree()
+bst.insert(9)
+bst.insert(4)
+bst.insert(6)
+
+bst.traverse(bst.root)
 
 
 
