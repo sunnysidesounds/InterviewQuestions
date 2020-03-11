@@ -1,23 +1,15 @@
 
-class Node :
+class Node:
   def __init__(self, value):
     self.value = value 
+    self.previous = None
     self.next = None
 
-class LinkedList:
+class DoublyLinkedList:
   def __init__(self):
     self.head = Node(None)
     self.tail = self.head
     self.length = 0
-
-  def printList(self):
-    array = [];
-    currentNode = self.head;
-    while(currentNode != None):
-        array.append(currentNode.value)
-        currentNode = currentNode.next
-    
-    print(array)
 
   def add(self, value):
     newNode = Node(value)
@@ -25,6 +17,7 @@ class LinkedList:
     while(current.next != None):
       current = current.next
     current.next = newNode
+    newNode.previous = current
     self.length += 1
 
   def get(self, value):
@@ -57,15 +50,3 @@ class LinkedList:
       return
     previous.next = current.next
     self.length -= 1
-
-
-  def reverse(self):
-    previous = None
-    current = self.head  
-    while(current != None):
-      next = current.next
-      current.next = previous
-      previous = current
-      current = next          
-    self.head = previous
-    return self.head

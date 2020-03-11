@@ -7,6 +7,7 @@ import contains_duplicates as cd
 import rotate_array as ra
 import longest_word as lw
 import first_recurring_character as frc
+from linked_list_impl import LinkedList, Node
 
 
 
@@ -78,12 +79,22 @@ nums = [1,2,3,1]
 
 # Given an array = [2,3,4,5]:
 # It should return undefined
-arr1 = [2,5,1,2,3,5,1,2,4]
-arr2 = [2,1,1,2,3,5,1,2,4]
-arr3 = [2,3,4,5]
-arr4 = [2,5,5,2,3,5,1,2,4]
+#arr1 = [2,5,1,2,3,5,1,2,4]
+#arr2 = [2,1,1,2,3,5,1,2,4]
+#arr3 = [2,3,4,5]
+#arr4 = [2,5,5,2,3,5,1,2,4]
 
-print("Method 1: First Recurring Characters --> {0}".format(frc.first_recurring_character(arr4)))
+#print("Method 1: First Recurring Characters --> {0}".format(frc.first_recurring_character(arr4)))
+
+# LinkedList Implementation
+
+ll = LinkedList()
+ll.add(1)
+ll.add(12)
+ll.add(15)
+ll.printList()
+ll.reverse()
+ll.printList()
 
 
 
