@@ -14,16 +14,17 @@ class BinarySearchTree:
     if self.root == None:
       self.root = new_node      
     else:
-      current_node = self.root      
-      while(current_node != None):
-        if value < current_node.value:
-          if current_node.left != None:
-            current_node.left = new_node
-
-          current_node = current_node.left
+      node = self.root      
+      while(node != None):
+        if value < node.value:
+          if node.left == None:
+            node.left = new_node
+            return node
+          current_node = node.left
         else:
-          if current_node.right != None:
+          if current_node.right == None:
             current_node.right = new_node
+            return node
           current_node = current_node.right
        
   def lookup(self, value):
@@ -35,8 +36,9 @@ class BinarySearchTree:
         node = node.left
       elif value > node.value:
         node = node.right
-      else:
+      elif node.value == value:
         return node
+    return None
 
   def remove(self, value):
     # Code here
