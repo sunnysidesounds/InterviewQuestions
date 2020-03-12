@@ -9,6 +9,7 @@ import longest_word as lw
 import first_recurring_character as frc
 from linked_list_impl import LinkedList, Node
 from binary_search_tree import BinarySearchTree, Node
+import factorial_recursion as fr
 
 
 
@@ -105,12 +106,20 @@ nums = [1,2,3,1]
 
 # Binary Search Tree
 
-bst = BinarySearchTree()
-bst.insert(9)
-bst.insert(4)
-bst.insert(6)
+#bst = BinarySearchTree()
+#bst.insert(9)
+#bst.insert(4)
+#bst.insert(6)
 
-bst.traverse(bst.root)
+#bst.traverse(bst.root)
+
+# Recursion: 
+
+results1 = fr.find_factorial_recursive(10)
+results2 = fr.find_factorial_iterative(10)
+
+print("Iterative {0}".format(results2))
+print("Recursive {0}".format(results1))
 
 
 

@@ -20,12 +20,12 @@ class BinarySearchTree:
           if node.left == None:
             node.left = new_node
             return node
-          current_node = node.left
+          node = node.left
         else:
-          if current_node.right == None:
-            current_node.right = new_node
+          if node.right == None:
+            node.right = new_node
             return node
-          current_node = current_node.right
+          node = node.right
        
   def lookup(self, value):
     if self.root == None:
