@@ -50,3 +50,37 @@ class BinarySearchTree:
     tree['left'] = None if node.left == None else self.traverse(node.left)
     tree['right'] = None if node.right == None else self.traverse(node.right)
     print(tree)
+
+  def breath_first_search(self):
+    current_node = self.root
+    output = []
+    queue = []
+    queue.append(current_node)
+    while(len(queue) > 0):
+      current_node = queue.pop()
+      output.append(current_node)
+      if current_node.left:
+        queue.append(current_node.left)
+      if current_node.right:
+        queue.append(current_node.right)
+
+    return output
+
+  def validate_a_bst(self):
+    current_node = self.root
+    queue = []
+    while(len(queue) > 0):
+      current_node = queue.pop()
+      if current_node.left.value < current_node.right.value:
+        if current_node.left:
+          queue.append(current_node.left)
+        if current_node.right:
+          queue.append(current_node.right)
+      else:
+        return False
+
+    return True
+
+
+
+
