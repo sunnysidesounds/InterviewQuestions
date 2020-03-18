@@ -24,5 +24,31 @@ def reverse_string_3(str):
   while (i >= 0): # iterate backwards concatinating to the nely created new_reversed_str
     new_reversed_str += str[i]
     i -= 1
-  return new_reversed_str # return str reversed   
+  return new_reversed_str # return str reversed
 
+def reverse_string_recursively(str):
+    if str == "":
+        return str
+    return reverse_string_recursively(str[1:]) + str[0]
+
+
+if __name__ == '__main__':
+    #fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = 'hello' # olleh
+    # hello
+    # ohell
+    # olhel
+    # ollhe
+    # olleh
+
+
+    n = 0
+
+    result = reverse_string_recursively(s, n)
+
+    print(result)
+
+    #fptr.write(str(result) + '\n')
+
+    #fptr.close()
