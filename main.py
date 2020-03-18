@@ -9,6 +9,7 @@ import longest_word as lw
 import first_recurring_character as frc
 from linked_list_impl import LinkedList, Node
 from binary_search_tree import BinarySearchTree, Node
+import factorial_recursion as fr
 
 
 
@@ -17,6 +18,9 @@ from binary_search_tree import BinarySearchTree, Node
 #print("Method 1: Reverse String --> {0}".format(rs.reverse_string_1(str)))
 #print("Method 2: Reverse String --> {0}".format(rs.reverse_string_2(str)))
 #print("Method 3: Reverse String --> {0}".format(rs.reverse_string_3(str)))
+str = "hello"
+print("Method 4: Reverse String Recurively --> {0}".format
+(rs.reverse_string_recursively(str, 0)))
 
 
 # Merge Sorted Arrays:
@@ -52,8 +56,8 @@ from binary_search_tree import BinarySearchTree, Node
 #print("Method 2: Move Zeros --> {0}".format(mz.move_zeros_to_end_2(zero_nums)))
 
 
-3# Contains Duplicate
-nums = [1,2,3,1]
+# Contains Duplicate
+#nums = [1,2,3,1]
 #nums = [1,2,3,4]
 #nums = [1,1,1,3,3,4,3,2,4,2]
 #print("Method 1: Contains Duplicates --> {0}".format(cd.contains_duplicates(nums)))
@@ -105,12 +109,20 @@ nums = [1,2,3,1]
 
 # Binary Search Tree
 
-bst = BinarySearchTree()
-bst.insert(9)
-bst.insert(4)
-bst.insert(6)
+#bst = BinarySearchTree()
+#bst.insert(9)
+#bst.insert(4)
+#bst.insert(6)
 
-bst.traverse(bst.root)
+#bst.traverse(bst.root)
+
+# Recursion: 
+
+#results1 = fr.find_factorial_recursive(10)
+#results2 = fr.find_factorial_iterative(10)
+
+#print("Iterative {0}".format(results2))
+#print("Recursive {0}".format(results1))
 
 
 

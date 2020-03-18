@@ -1,4 +1,3 @@
-import json
 
 class Node :
   def __init__(self, value):
@@ -50,13 +49,38 @@ class BinarySearchTree:
     tree['value'] = node.value
     tree['left'] = None if node.left == None else self.traverse(node.left)
     tree['right'] = None if node.right == None else self.traverse(node.right)
-    return tree
+    print(tree)
 
+  def breath_first_search(self):
+    current_node = self.root
+    output = []
+    queue = []
+    queue.append(current_node)
+    while(len(queue) > 0):
+      current_node = queue.pop()
+      output.append(current_node)
+      if current_node.left:
+        queue.append(current_node.left)
+      if current_node.right:
+        queue.append(current_node.right)
 
-  def pretty(self, d, indent=0):
-    for key, value in d.items():
-      print('\t' * indent + str(key))
-      if isinstance(value, dict):
-        self.pretty(value, indent+1)
+    return output
+
+  def validate_a_bst(self):
+    current_node = self.root
+    queue = []
+    while(len(queue) > 0):
+      current_node = queue.pop()
+      if current_node.left.value < current_node.right.value:
+        if current_node.left:
+          queue.append(current_node.left)
+        if current_node.right:
+          queue.append(current_node.right)
       else:
-        print('\t' * (indent+1) + str(value))
+        return False
+
+    return True
+
+
+
+

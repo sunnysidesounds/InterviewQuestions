@@ -24,31 +24,30 @@ def reverse_string_3(str):
   while (i >= 0): # iterate backwards concatinating to the nely created new_reversed_str
     new_reversed_str += str[i]
     i -= 1
-  return new_reversed_str # return str reversed
+  return new_reversed_str # return str reversed   
 
-def reverse_string_recursively(str):
-    if str == "":
-        return str
-    return reverse_string_recursively(str[1:]) + str[0]
+# ----
 
+# Method 4 : Recurively
 
-if __name__ == '__main__':
-    #fptr = open(os.environ['OUTPUT_PATH'], 'w')
+def reverse_string_recursively(str, index):
+  if index == len(str):
+    return str
 
-    s = 'hello' # olleh
-    # hello
-    # ohell
-    # olhel
-    # ollhe
-    # olleh
+  str = reverse_string_recursively(str)
 
 
-    n = 0
 
-    result = reverse_string_recursively(s, n)
 
-    print(result)
 
-    #fptr.write(str(result) + '\n')
+# Implement a function that reverses a string using iteration...and then recursion!
+#function reverseString(str) {
 
-    #fptr.close()
+#}
+
+#reverseString('yoyo mastery')
+#//should return: 'yretsam oyoy'
+
+
+
+
