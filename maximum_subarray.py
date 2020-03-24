@@ -1,4 +1,4 @@
-
+1
 
 # Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
 
@@ -17,7 +17,7 @@
 
 
 def get_max_subarray(nums):
-  max_so_far = 0
+  max_so_far = float('-inf')
   max_ending_here = 0
   
   for i in range(len(nums)):
@@ -41,3 +41,19 @@ def get_max_subarray_2(nums):
 
   return subarray_max
 
+  max_so_far = 0
+  max_ending_here = 0
+
+  for i in range(len(array)):
+    max_extend =  max_ending_here + array[i]
+    new_subarray = array[i]
+    max_ending_here = max(max_extend, new_subarray)
+    max_so_far = max(max_so_far, max_ending_here)
+
+  return max_so_far
+
+
+
+if __name__ == '__main__':
+  restuls = get_max_subarray([-1, -2, -3, -4, -5, -6, -7, -8, -9, -10])
+  print(restuls)

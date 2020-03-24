@@ -16,6 +16,7 @@
 [ ] Min Cost to Repair Edges (Minimum Spanning Tree II)  ⭐ ⭐ ⭐  OJ
 [ ] Data Center Cirtical Connections (Minimum Spanning Tree III)  ⭐⭐⭐ OJ
 [X] Movies on Flight ⭐
+    - Easy for brute force, more difficult to come up with more efficient.
 [ ] Treasure Island I ⭐
 [ ] Treasure Island II ⭐ ⭐ ⭐
 [ ] K Nearest Post Offices ⭐ ⭐
