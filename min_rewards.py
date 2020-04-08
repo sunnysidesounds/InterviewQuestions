@@ -35,12 +35,46 @@ must give out to students, all the while satisfying the two rules
 """
 
 def min_rewards(scores):
+    scores_length = len(scores)
+    rewards_list = [1] * scores_length
 
+    # iterate from left to right
+    for i in range(0, scores_length - 1):
+        before_value = scores[i]
+        current_value = scores[i + 1]
+        if before_value > current_value:
+            continue
+        elif before_value < current_value:
+            rewards_list[i + 1] = max(rewards_list[i + 1], rewards_list[i] + 1)
+
+    # iterate from right to left
+    for j in range(scores_length - 1, 0, -1):
+        after_value = scores[j]
+        current_value = scores[j - 1]
+        if after_value > current_value:
+            continue
+        elif after_value < current_value:
+            rewards_list[j - 1] = max(rewards_list[j - 1], rewards_list[j] + 1)
+    return sum(rewards_list)
     pass
 
 
 
 if __name__ == '__main__':
-    scores = [8, 4, 2, 1, 3, 6, 7, 9, 5]
-    results = min_rewards(scores)
-    print(results)
+
+    tests = [
+        {"input": [8, 4, 2, 1, 3, 6, 7, 9, 5], "output": 25},
+        {"input": [1], "output": 1},
+        {"input": [5, 10], "output": 3},
+        {"input": [2, 20, 13, 12, 11, 8, 4, 3, 1, 5, 6, 7, 9, 0], "output": 52},
+        {"input": [2, 1, 4, 3, 6, 5, 8, 7, 10, 9], "output": 15},
+        {"input": [0, 4, 2, 1, 3], "output": 9},
+    ]
+
+    counter = 1
+    for test in tests:
+        results = min_rewards(test['input'])
+        print("TEST {0}".format(counter), results == test['output'])
+        #print()
+
+        counter += 1

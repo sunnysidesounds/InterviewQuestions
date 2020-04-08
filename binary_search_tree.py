@@ -10,29 +10,43 @@ class BinarySearchTree:
         self.root = None
 
     def insert(self, value):
+        new_node = Node(value)
+        if self.root is None:
+            self.root = new_node
+        else:
+            current = self.root
+            while True:
+                if value < current.value:
+                    if not current.left:
+                        current.left = new_node
+                        return self
+                    current = current.left
+                else:
+                    if not current.right:
+                        current.right = new_node
+                        return self
+                    current = current.right
+
+    def insert_r(self, value):
         if self.root is None:
             self.root = Node(value)
         else:
-            current = self.root
+            self.insert_node(self.root, value)
 
-            while True:
-                if value < current.value:
-                    if current.left:
-                        current = current.left
-                    else:
-                        current.left = Node(value)
-                        break
-                elif value > current.value:
-                    if current.right:
-                        current = current.right
-                    else:
-                        current.right = Node(value)
-                        break
-                else:
-                    break
+    def insert_node(self, current_node, value):
+        if value <= current_node.value:
+            if current_node.left:
+                self.insert_node(current_node.left, value)
+            else:
+                current_node.left = Node(value)
+        elif value > current_node.value:
+            if current_node.right:
+                self.insert_node(current_node.right, value)
+            else:
+                current_node.right = Node(value)
 
     def lookup(self, value):
-        if self.root == None:
+        if not self.root:
             return None
         node = self.root
         while (node != None):
@@ -112,26 +126,66 @@ class BinarySearchTree:
 
 
 
-    # def validate_a_bst_2(self):
+    def branchSums(self,  root):
+        # Write your code here.
+        stack = []
+        sums_of_branches = []
+        stack.append(root)
+        while len(stack) != 0:
+            current = stack.pop()
+
+
+    def flatten_binary_tree(self, root):
+
+        if root is not None:
+            arr = []
+            self._flatten_binary_tree(root, arr)
+
+            previous = None
+            current_node = None
+            for i in range(len(arr) - 1):
+                current_node = arr[i]
+                next_node = arr[i + 1]
+
+                print("NODE:", current_node.value, "NEXT NODE:", next_node.value)
+
+                current_node.left = previous
+                current_node.right = next_node
+                previous = current_node
+                print()
+
+            return current_node
+        else:
+            return None
+
+
+    def _flatten_binary_tree(self, node, array):
+        if node.left is not None:
+            self._flatten_binary_tree(node.left, array)
+        array.append(node)
+        if node.right is not None:
+            self._flatten_binary_tree(node.right, array)
+
+
 
 
 if __name__ == '__main__':
     bst = BinarySearchTree()
-    bst.insert(10)
-    bst.insert(5)
-    bst.insert(15)
-    bst.insert(5)
-    bst.insert(2)
-    bst.insert(1)
-    bst.insert(22)
-    # bst.insert(11)
+    bst.root = Node(1)
+    bst.root.left = Node(2)
+    bst.root.left.left = Node(4)
+    bst.root.left.right = Node(5)
+    bst.root.left.right.left = Node(7)
+    bst.root.left.right.right = Node(8)
 
-    bst.root.left.right = Node(11)
+    bst.root.right = Node(3)
+    bst.root.right.left = Node(6)
+    results = bst.flatten_binary_tree(bst.root)
 
-    is_bst = bst.validate_a_bst(bst.root)
-    print(is_bst)
+    print(results)
 
-    bst.print_tree(bst.root, 10)
+    # prints BST
+    bst.print_tree(results, 1)
 
 """
 10, 5, 15, 5, 2, 1, 22
