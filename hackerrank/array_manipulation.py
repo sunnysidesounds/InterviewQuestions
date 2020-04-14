@@ -54,27 +54,74 @@ The required answer will be .
 
 
 """
+import os
 
-def arrayManipulation(n, queries):
-        pass
+
+# O (n^2) - Not efficient enough
+def array_manipulation(n, queries):
+    permutated_array = [0] * (n + 1)
+    for index, query in enumerate(queries, 1):
+        sub_index = query[0]
+        for i in range(query[0], query[1] + 1):
+            permutated_array[sub_index] = permutated_array[sub_index] + query[2]
+            sub_index += 1
+        print(index, query, permutated_array[index])
+
+    print(permutated_array)
+    return max(permutated_array)
+
+def array_manipulation_recursive(n, queries):
+    return array_manipulation_recursive_helper(0, 0, queries, [0] * (n + 1))
+
+
+def array_manipulation_recursive_helper(index, current_highest_value, operations_list, operation_results):
+    if (len(operations_list)) == index:
+        return current_highest_value
+    else:
+        query = operations_list[index]
+        for i in range(query[0], query[1] + 1):
+            operation_results[i] = operation_results[i] + query[2]
+            if operation_results[i] > current_highest_value:
+                current_highest_value = operation_results[i]
+        index += 1
+        print("highest_value ", current_highest_value, " - results ", operation_results)
+
+        return array_manipulation_recursive_helper(index, current_highest_value, operations_list, operation_results)
+
+
+def array_manipulation_opimize(n, queries):
+    highest_value = 0
+    result_value = 0
+    opetaion_results = [0] * (n+1)
+    for query in queries:
+        a, b, k = [query[0], query[1], query[2]]
+        opetaion_results[a-1] += k
+        if b + 1 <= n:
+            opetaion_results[b] -= k
+
+    for result in opetaion_results:
+        result_value += result
+        highest_value = max(highest_value, result_value)
+
+    return highest_value
 
 
 if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
-    nm = input().split()
+    tests =[
+        {"queries": [[1, 2, 100], [2, 5, 100], [3, 4, 100]], "n": 5, "expected": 200},
+        {"queries": [[1, 5, 3], [4, 8, 7], [6, 9, 1]], "n": 10, "expected": 10},
+        {"queries": [[2, 6, 8], [3, 5, 7], [1, 8, 1], [5, 9, 15]], "n": 10, "expected": 31},
 
-    n = int(nm[0])
+    ]
+    counter = 1
+    for test in tests:
 
-    m = int(nm[1])
+        results = array_manipulation_opimize(test['n'], test['queries'])
+        print("Test {0}".format(counter), results == test['expected'])
+        print("RESULTS: ", results)
+        print()
 
-    queries = []
+        counter += 1
 
-    for _ in range(m):
-        queries.append(list(map(int, input().rstrip().split())))
 
-    result = arrayManipulation(n, queries)
-
-    fptr.write(str(result) + '\n')
-
-    fptr.close()

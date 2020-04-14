@@ -167,6 +167,24 @@ class BinarySearchTree:
             self._flatten_binary_tree(node.right, array)
 
 
+    def findClosestValueInBst(self, tree, target):
+        return self.find_closest_value_helper(tree. target, tree.value)
+        pass
+
+    def find_closest_value_helper(self, node, target, current_closest):
+        if node.left is not None:
+            self.find_closest_value_helper(node.left, target, current_closest)
+
+        if node.value == target:
+            return target
+
+        if abs(node.value - target) < current_closest:
+            current_closest = node.value
+
+        if node.right is not None:
+            self.find_closest_value_helper(node.right, target, current_closest)
+
+
 
 
 if __name__ == '__main__':
