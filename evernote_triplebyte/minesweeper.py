@@ -9,7 +9,7 @@ square, and finally 'X' represents a revealed mine.
 Now given the next click position (row and column indices) among all the unrevealed squares ('M' or 'E'),
 return the board after revealing this position according to the following rules:
 
-- If a mine ('M') is revealed, then the game is over - change it to 'X'.
+DONE - If a mine ('M') is revealed, then the game is over - change it to 'X'.
 - If an empty square ('E') with no adjacent mines is revealed, then change it to revealed blank ('B') and all
 of its adjacent unrevealed squares should be revealed recursively.
 - If an empty square ('E') with at least one adjacent mine is revealed, then change it to a digit ('1' to '8')
@@ -77,7 +77,7 @@ Accepted
 
 - Assume a click is always within bounds of the bpard
 
-
+DONE - If a mine ('M') is revealed, then the game is over - change it to 'X'.
 
 - If an empty square ('E') with no adjacent mines is revealed, then change it to revealed blank ('B') and all
 of its adjacent unrevealed squares should be revealed recursively.
@@ -87,52 +87,34 @@ representing the number of adjacent mines.
 
 
 """
+def get_neighbors(board, click):
+    click_x, click_y = click[0], click[1]
+    n, m = len(board), len(board[0])
+    for dx in (-1, 0, +1):
+        for dy in (-1, 0, +1):
+            nx, ny = click_x + dx, click_y + dy
+            if 0 <= nx < n and 0 <= ny < m and not (nx == click_x and ny == click_y):
+                yield nx, ny
+
+
 def update_board(board, click):
-    visited = [[False for value in row] for row in board]
-    return update_board_helper(board, click, visited)
+    current_cell = board[click[0]][click[1]]
+    if current_cell == 'M':
+        board[click[0]][click[1]] = 'X'
+    elif current_cell == 'E':
+        m_ajustments = sum(board[click[0]][click[1]] == 'M' for i, j in get_neighbors(board, click))
+        if m_ajustments == 0:
+            board[click[0]][click[1]] = 'B'
+            for neighbor in get_neighbors(board, click):
+                update_board(board, neighbor)
+        else:
+            board[click[0]][click[1]] = str(m_ajustments)
 
-
-def update_board_helper(board, click, visited):
-    row_length = len(board)
-    columm_length = len(board[0])
-
-    if all_is_visited(visited):
-        return board
-    else:
-        for row in range(row_length):
-            for column in range(columm_length):
-                click_on_board = board[click[0]][click[1]]
-                if click_on_board == 'M':
-                    board[click[0]][click[1]] = 'X'
-                    return board
-                if click_on_board == 'E':
-                    neigbors = get_neigboring_nodes(row, column, board, visited)
+    return board
 
 
 
-def all_is_visited(visited):
-    has_all = True
-    for visit in visited:
-        if not all(visit):
-            return False
-    return has_all
 
-
-def get_neigboring_nodes(row, column, board, visited):
-    neigbors = []
-    # left:
-    if row > 0 and not visited[row - 1][column]:
-        neigbors.append([row - 1, column])
-    # right:
-    if row < len(board) - 1 and not visited[row + 1][ column]:
-        neigbors.append([row + 1, column])
-    # top:
-    if column > 0 and not visited[row][column - 1]:
-        neigbors.append([row, column - 1])
-    # bottom
-    if column < len(board) - 1 and not visited[row][column + 1]:
-        neigbors.append([row, column + 1])
-    return neigbors
 
 if __name__ == '__main__':
 
@@ -166,6 +148,7 @@ if __name__ == '__main__':
     for test in tests:
         results = update_board(test['board'], test['click'])
         print("{0} test ".format(counter), results == test['expected'])
+        print(results)
 
         counter += 1
 
