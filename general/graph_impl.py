@@ -29,3 +29,10 @@ class Graph:
       for vertext in node_connections:
         connections += vertext + " "
       print("{node} --> {connections}".format(node=node, connections=connections))
+
+
+
+
+
+#if __name__ == '__main__':
+

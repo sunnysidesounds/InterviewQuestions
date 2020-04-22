@@ -48,6 +48,11 @@ def _has_single_cycle(array, current_index, visited):
     else:
         if new_index < 0:
             cycle_index_to_end = len(array) + new_index
+            #if cycle_index_to_end < 0:
+
+            if cycle_index_to_end == -11:
+                print()
+
             return _has_single_cycle(array, cycle_index_to_end, visited)
         elif new_index > len(array) - 1:
             cycle_index_to_begin = abs(len(array) - new_index)
@@ -73,16 +78,16 @@ def _has_single_cycle(array, current_index, visited):
 if __name__ == '__main__':
 
     tests = [
-        {"data": [2, 3, 1, -4, -4, 2], "expected": True},
-        {"data": [1, -1, 1, -1], "expected": False},
-        {"data": [2, 2, -1], "expected": True},
-        {"data": [2, 2, 2], "expected": True},
-        {"data": [1, 1, 1, 1, 1], "expected": True},
-        {"data": [0, 1, 1, 1, 1], "expected": False},
-        {"data": [1, 1, 0, 1, 1], "expected": False},
-        {"data": [3, 5, 6, -5, -2, -5, -12, -2, -1, 2, -6, 1, 1, 2, -5, 2], "expected": True},
-        {"data": [3, 5, 5, -5, -2, -5, -12, -2, -1, 2, -6, 1, 1, 2, -5, 2], "expected": False},
-        #{"data": [10, 11, -6, -23, -2, 3, 88, 908, -26], "expected": True},
+        #{"data": [2, 3, 1, -4, -4, 2], "expected": True},
+        #{"data": [1, -1, 1, -1], "expected": False},
+        #{"data": [2, 2, -1], "expected": True},
+        #{"data": [2, 2, 2], "expected": True},
+        #{"data": [1, 1, 1, 1, 1], "expected": True},
+        #{"data": [0, 1, 1, 1, 1], "expected": False},
+        #{"data": [1, 1, 0, 1, 1], "expected": False},
+        #{"data": [3, 5, 6, -5, -2, -5, -12, -2, -1, 2, -6, 1, 1, 2, -5, 2], "expected": True},
+        #{"data": [3, 5, 5, -5, -2, -5, -12, -2, -1, 2, -6, 1, 1, 2, -5, 2], "expected": False},
+        {"data": [10, 11, -6, -23, -2, 3, 88, 908, -26], "expected": True},
         #{"data": [10, 11, -6, -23, -2, 3, 88, 909, -26], "expected": False},
 
 

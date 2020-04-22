@@ -53,49 +53,6 @@ Remove d and e from cde to get c.
 Remove a and b from abc to get c.
 We must delete  characters to make both strings anagrams, so we print  on a new line.
 
-
-
-{'f': 1,
-'c': 2,
-'r': 1,
-'x': 2,
-'z': 1,
-'w': 1,
-'s': 1,
-'a': 1,
-'n': 1,
-'m': 2,
-'l': 1,
-'i': 1,
-'g': 1,
-'y': 3,
-'v': 1}
-
-
-
-{'j': 2,
-'x': 1,
-'w': 2,
-'t': 1,
-'r': 2,
-'h': 2,
-'v': 1,
-'u': 1,
-'l': 1,
-'m': 3,
-'p': 2,
-'d': 1,
-'o': 2,
-'q': 1,
-'b': 2,
-'i': 1,
-'s': 1,
-'g': 1,
-'e': 2,
-'k': 1}
-
-
-
 """
 
 
@@ -108,29 +65,6 @@ def make_anagram(a, b):
         count_b = b.count(letter)
         count += abs(count_a - count_b)
     return count
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 if __name__ == '__main__':
 
