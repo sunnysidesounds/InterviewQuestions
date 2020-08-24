@@ -168,7 +168,7 @@ class BinarySearchTree:
 
 
     def findClosestValueInBst(self, tree, target):
-        return self.find_closest_value_helper(tree. target, tree.value)
+        return self.find_closest_value_helper(tree.target, tree.value)
         pass
 
     def find_closest_value_helper(self, node, target, current_closest):

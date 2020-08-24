@@ -13,10 +13,13 @@
 # Method 1:
 def move_zeros_to_end(nums):  
   zeros = []
+  # iterate over the nums array
   for num in nums:
+    # num is zero, append to zeros list, removing the zero from the original list
     if num == 0:
       zeros.append(num)
       nums.remove(num)
+  # then add the two list together
   return nums + zeros
 
 # Method 2:

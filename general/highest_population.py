@@ -5,6 +5,7 @@
 # - list of people object with name, birth_year, death_year
 
 
+
 def highest_population_year(people):
     birth_years = {}
     for person in people: # iterate over peoples list

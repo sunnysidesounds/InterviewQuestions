@@ -25,13 +25,19 @@ def is_balanced_brackets(string):
     # if we run into a closing bracket first, with no prior opening brakcet it isn't balanced, return false, ]()
     stack = []
     for char in string:
+        # check if the character is an open bracket { [ ( and append to the stack (list)
         if is_opening_bracket(char):
             stack.append(char)
+        # else if must be a closing bracket
         else:
+            # if stack is empty return false because this would be an unbalanced string.
             if len(stack) == 0:
                 return False
+            # otherwise, pop the item from the top of the stack
             opening_bracket = stack.pop()
+            # combine the popped item and concatinate it with the current iterated character
             string_to_match = opening_bracket + char
+            # The check if this newly constructed string has a matching bracket {}, [], ()
             if not has_matching_brackets(string_to_match):
                 return False
 

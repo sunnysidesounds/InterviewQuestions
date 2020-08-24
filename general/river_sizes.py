@@ -38,7 +38,10 @@ all rivers represented in the input matrix. Note that these sizes do not need to
 
 def river_sizes(matrix):
     sizes = []
+    # create a visited matrix that mimics the given matrix
     visited = [[False for value in row] for row in matrix]
+
+    # iterate over matrix, if already visited, otherwise call traverse_node method
     for i in range(len(matrix)):
         for j in range(len(matrix[i])):
             if visited[i][j]:

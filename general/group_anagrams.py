@@ -20,15 +20,18 @@
 
 def group_anagrams(words):
     anagram_map = {}
-    # build a map
+    # build a map of words
     for word in words:
+        # sort the character, creating a word_key
         word_key = "".join(sorted(word))
+        # If word key exists, add word_key and word to dict array
         if word_key in anagram_map:
             anagram_map[word_key].append(word)
         else:
             anagram_map[word_key] = [word]
 
     anagram_list = []
+    # then build output of nested lists
     for key in anagram_map:
         anagram_list.append(anagram_map[key])
 

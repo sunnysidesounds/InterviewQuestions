@@ -18,6 +18,7 @@
 
 def first_recurring_character(arr):
   character_map = {}
+# create a dict / map checking if it's already in the map. If it is, it's the first recurring
   for item in arr: 
     if item in character_map:
       return item     

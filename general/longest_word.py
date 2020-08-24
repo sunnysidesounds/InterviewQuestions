@@ -14,8 +14,10 @@ import re
 def longest_word(sentence):
   longest_word = ''
   longest_count = 0
+  # split the sentence into a word list
   word_list = sentence.split(" ")
   for word in word_list:
+    # strip word of all special characters
     clean_word = re.sub('[^a-zA-Z0-9-_*.]', '', word)
     length_of_word = len(clean_word)
     if length_of_word > longest_count:
