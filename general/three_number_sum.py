@@ -72,5 +72,6 @@ def three_number_sum(array, target_sum):
 if __name__ == '__main__':
 
     results = three_number_sum([12, 3, 1, 2, -6, 5, -8, 6], 0)
+    print(results)
 
 
