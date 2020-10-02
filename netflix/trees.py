@@ -82,7 +82,7 @@ def kth_maxiumum_value(node, k):
 # Use an inorder traversal, in ascending order of the tree.
 # What element are we one
 # Return results.
-def kth_smallest_value(node, k):
+def kth_smallest_value(root, k):
     nums = []
     in_order(root, nums, k)
     return nums[1]
@@ -97,6 +97,7 @@ def in_order(root, nums, k):
             nums[1] = root.data
             return
         in_order(root.right, nums, k)
+
 
 
 

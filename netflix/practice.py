@@ -125,6 +125,51 @@ def find_largest_smallest_values(nums, k):
         results['largest'].append(sorted_numbers[j])
     return results
 
+# Use temporary array
+#K largest elements from arr[0..n-1]
+
+#1) Store the first k elements in a temporary array temp[0..k-1].
+#2) Find the smallest element in temp[], let the smallest element be min.
+#3-a) For each element x in arr[k] to arr[n-1]. O(n-k)
+#If x is greater than the min then remove min from temp[] and insert x.
+#3-b)Then, determine the new min from temp[]. O(k)
+#4) Print final k elements of temp[]
+
+#Time Complexity: O((n-k)*k). If we want the output sorted then O((n-k)*k + klogk)
+def find_k_largest_elements(arr, k):
+    temp = []
+    for i in range(0, k):
+        temp.append(arr[i])
+
+    smallest_element = min(temp)
+    for x in range(k, len(arr)):
+        if arr[x] > smallest_element:
+            temp.remove(smallest_element)
+            temp.append(arr[x])
+        smallest_element = min(temp)
+
+    return temp
+
+def find_k_smallest_elements(arr, k):
+    temp = []
+    for i in range(0, k):
+        temp.append(arr[i])
+
+    largest_element = max(temp)
+    for x in range(k, len(arr)):
+        if arr[x] < largest_element:
+            temp.remove(largest_element)
+            temp.append(arr[x])
+        largest_element = max(temp)
+    return temp
+
+
+
+
+
+
+
+
 
 
 
