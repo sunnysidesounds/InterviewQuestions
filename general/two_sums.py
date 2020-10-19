@@ -39,6 +39,12 @@ def find_two_sums_2(nums, target):
     index_2 += 1
 
   return []
+
+
+if __name__ == '__main__':
+
+    r1 = find_two_sums_2([3,2,4], 6)
+    print(r1)
     
 
 

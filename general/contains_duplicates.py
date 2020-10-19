@@ -22,6 +22,8 @@
 # Method 1: Create a set of the nums array, convert back to a list,
 # then compare the length of this set list with the length of the original nums list.
 def contains_duplicates(nums):
+
+
   return True if len(list(set(nums))) != len(nums) else False
 
 # Method 2: Using a dict / map iterate over numbers adding and checking for duplicate in the dict

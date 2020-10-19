@@ -37,24 +37,6 @@ def longest_substring_without_duplication(string):
 
 
 
-    #char_map = {}
-    #index = 0
-    #last_sub_string = ""
-    #current_substring = ""
-    #for char in string:
-    #    if char not in char_map and char not in last_sub_string:
-    #        char_map[char] = index
-    #        current_substring = last_sub_string + char
-    #        if len(current_substring) > len(last_sub_string):
-    #            last_sub_string = current_substring
-    #    else:
-    #        index = max(index, char_map[char] + 1)
-    #        current_substring = string[index]
-    #        char_map = {}
-    #        char_map[char] = index
-#
-    #    index += 1
-
 
 
 
