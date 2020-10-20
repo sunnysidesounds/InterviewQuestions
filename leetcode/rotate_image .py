@@ -17,7 +17,7 @@ def rotate_image(matrix):
     return new_matrix
 
 
-def rotate_image_2(matrix):
+def rotate_image_2(matrix):  # in-place rotation
     n = len(matrix[0])
 
     for i in range(n // 2):
@@ -50,12 +50,6 @@ class TestRotatingImage(unittest.TestCase):
     def test_2(self):  # brute force
         output = rotate_image_2([[1,2,3],[4,5,6],[7,8,9]])
         self.assertEqual(output, [[7,4,1],[8,5,2],[9,6,3]], 'Optimal, should be crosswise')
-
-
-
-
-
-
 
 
 
