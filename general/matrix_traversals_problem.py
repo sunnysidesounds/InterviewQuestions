@@ -2,6 +2,7 @@
 
 
 # LEFT TO RIGHT --->
+# Left to Right equals row, than column
 def matrix_traversals_left_to_right(matrix):
     arr = []
     for row in range(len(matrix)):
@@ -11,6 +12,7 @@ def matrix_traversals_left_to_right(matrix):
     return arr
 
 # RIGHT TO LEFT <--
+# Right to Left equals, column, than backwards row
 def matrix_traversals_right_to_left(matrix):
     arr = []
     for column in range(len(matrix[0])):
@@ -20,6 +22,7 @@ def matrix_traversals_right_to_left(matrix):
     return arr
 
 # TOP TO BOTTOM
+# Top to Bottom equals, column, than row
 def matrix_traversals_top_to_bottom(matrix):
     arr = []
     for column in range(len(matrix[0])):
@@ -29,6 +32,7 @@ def matrix_traversals_top_to_bottom(matrix):
     return arr
 
 # BOTTOM TO TOP
+# Bottom to Top equals, column, than backwards row
 def matrix_traversals_bottom_to_top(matrix):
     arr = []
     for column in range(len(matrix[0])):
