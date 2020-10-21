@@ -43,6 +43,8 @@ def get_max_subarray_2(nums):
 
   return subarray_max
 
+def get_max_subarray_3(array):
+
   max_so_far = 0
   max_ending_here = 0
 
