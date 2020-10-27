@@ -19,7 +19,7 @@ stack = []
 
 
 def is_balanced_expression(string):
-
+    stack = []
     for expression in string:
         if is_open_expression(expression):
             stack.append(expression)
@@ -31,8 +31,10 @@ def is_balanced_expression(string):
             matching_expression = current_expression + expression
             if not has_matching_expression(matching_expression):
                 return False
-
-    return True
+    if len(stack) > 0:
+        return False
+    else:
+        return True
 
 
 def has_matching_expression(expression):
@@ -49,7 +51,7 @@ def is_open_expression(expression):
 
 
 if __name__ == '__main__':
-    results = is_balanced_expression("[(])")
+    results = is_balanced_expression("[")
     print(results)
 
 

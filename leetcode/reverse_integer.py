@@ -1,26 +1,38 @@
+"""
+        if x >= 2**31-1 or x <= -2**31: return 0
+        else:
+            strg = str(x)
+            if x >= 0 :
+                revst = strg[::-1]
+            else:
+                temp = strg[1:]
+                temp2 = temp[::-1]
+                revst = "-" + temp2
+            if int(revst) >= 2**31-1 or int(revst) <= -2**31: return 0
+            else: return int(revst)
+"""
+
+
 import unittest
 
+
 def reverse_integer(x):
-    is_negative = False
-    reversed_int = 0
-    x = abs(x)
 
-    if x < 0:
-        is_negative = True
-        x *= -1  # make the negative number positive by multipling by -1
-
-
-    while x > 0:
-        reversed_int = reversed_int * 10 + (x % 10)  # This accounts the 1's, 10's 100's place
-        x /= 10
-
-    if reversed_int > 1 << 31: # if we have overflow, return 0
+    if x >= 2**31-1 or x <= -2**21:
         return 0
+    else:
+        string_integer = str(x)
+        if x >= 0:
+            rev = string_integer[::-1]
+        else:
+            temp = string_integer[1:]
+            temp2 = temp[::-1]
+            rev = "-" + temp2
+        if int(rev) >= 2**31-1 or int(rev) <= -2**31:
+            return 0
+        else:
+            return int(rev)
 
-    if is_negative:
-        reversed_int *= -1
-
-    return reversed_int
 
 
 class TestReverseInteger(unittest.TestCase):
